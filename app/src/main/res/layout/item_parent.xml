@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="parent"
+            type="com.adshopmalychtest.model.dto.ParentItem" />
+
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="56dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="56dp"
+            android:layout_marginStart="8dp"
+            android:text='@{parent.name +" "+parent.id}'
+            android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:rotation="@{parent.openState ? 180: 0}"
+            android:src="@drawable/ic_arrow_drop_down_black_24dp"
+            android:visibility="@{ parent.hasChild() ? View.VISIBLE : View.GONE}"
+            app:animateRotation="@{parent.stateChanged}"
+            app:endRotatePosition="@{180}"
+            app:startRotatePosition="@{0}" />
+
+
+    </RelativeLayout>
+
+</layout>

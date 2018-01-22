@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="mainVO"
+            type="com.adshopmalychtest.viewmodel.MainPageVO" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.adshopmalychtest.view.fragment.MainPageFragment"
+        tools:showIn="@layout/activity_main">
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:ListData="@{mainVO.parentItemList}"
+            app:layoutManager="android.support.v7.widget.LinearLayoutManager" />
+
+        <include
+            layout="@layout/progress_and_restart"
+            app:baseVO="@{mainVO}" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>
